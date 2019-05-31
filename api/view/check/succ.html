@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验票端</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport"/>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/check/css/base.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/check/css/robTickets.css">
+    <script type="application/javascript" src="__STATIC__/check/js/index.js"></script>
+</head>
+<body>
+<!--我的订单详情-->
+
+<div class="order-info">
+    <ul class="info-ul">
+        <li class="title">工作人员验票端</li>
+        <li class="flex-space-start time address">
+            <div></div>
+        </li>
+        <li class="border">
+            <img src="__STATIC__/check/images/border-icon.png" alt="">
+        </li>
+        <li class="content" id="scanQRCode0">
+            <div class="font-30">取票码：{:input('ordersn')}</div>
+            <img src="__STATIC__/check/images/e2.png" alt="">
+            <div><span style="color: #f7bb3b;font-size: 4rem">{:input('msg')}</span> <br> 点击扫码继续验票</div>
+        </li>
+        <li class="border">
+            <img src="__STATIC__/check/images/border-icon.png" alt="">
+        </li>
+        <li class="msg">订单号：{:input('ordersn')}</li>
+        <li class="msg">验票时间：{$date|@}</li>
+    </ul>
+
+
+
+</div>
+{include file="check/footer"/}
+</body>
+<script type="application/javascript" src="__STATIC__/check/js/jquery.min.js"></script>
+
+<script>
+    document.querySelector('#scanQRCode0').onclick = function () {
+        wx.scanQRCode();
+    };
+</script>
+
+</html>
